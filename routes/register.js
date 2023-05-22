@@ -4,6 +4,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
+router.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
+router.use(express.json()); // Middleware to parse JSON bodies
 
 /* GET register page. */
 router.get('/register', async function(req, res, next) {
@@ -21,7 +23,8 @@ router.post('/register', async function(req, res, next) {
     if (error) {
       return res.render('register', { title: 'Register', message: error.details[0].message });
     }
-  
+    
+   
     try { 
       const hashedPassword = await bcrypt.hash(password, 10); // Hash the password using bcrypt
 
