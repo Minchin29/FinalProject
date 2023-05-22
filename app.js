@@ -10,7 +10,7 @@ var registerRouter = require('./routes/register');
 var adminRouter = require('./routes/admin');
 var userRouter = require('./routes/user');
 var managerRouter = require('./routes/manager');
-
+// edfghj
 
 var app = express();
 
